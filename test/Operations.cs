@@ -10,60 +10,95 @@ namespace test
         {
             Gezgin temp = new Gezgin();
             temp.R = gezgin.R;
-            gezgin.R = SurfaceL(temp.R);
+            switch (gezgin.R)
+            {
+                case "N":
+                    temp.R = "W";
+                    break;
+                case "W":
+                    temp.R = "S";
+                    break;
+                case "S":
+                    temp.R = "E";
+                    break;
+                case "E":
+                    temp.R = "N";
+                    break;
+                default:
+                    break;
+            }
+            gezgin.R = temp.R;
             return gezgin;
         }
         public Gezgin RotateRight(Gezgin gezgin)
         {
             Gezgin temp = new Gezgin();
             temp.R = gezgin.R;
-            gezgin.R = SurfaceR(temp.R);
+            switch (gezgin.R)
+            {
+                case "N":
+                    temp.R = "E";
+                    break;
+                case "W":
+                    temp.R = "N";
+                    break;
+                case "S":
+                    temp.R = "W";
+                    break;
+                case "E":
+                    temp.R = "S";
+                    break;
+                default:
+                    break;
+            }
+            gezgin.R = temp.R;
             return gezgin;
         }
-        public string SurfaceR(string s)
-        {
-            string result = "";
-            switch (s)
-            {
-                case "N":
-                    result = "E";
-                    break;
-                case "W":
-                    result = "N";
-                    break;
-                case "S":
-                    result = "W";
-                    break;
-                case "E":
-                    result = "S";
-                    break;
-                default:
-                    break;
-            }
-            return result;
-        }
-        public string SurfaceL(string s)
-        {
-            string result = "";
-            switch (s)
-            {
-                case "N":
-                    result = "W";
-                    break;
-                case "W":
-                    result = "S";
-                    break;
-                case "S":
-                    result = "E";
-                    break;
-                case "E":
-                    result = "N";
-                    break;
-                default:
-                    break;
-            }
-            return result;
-        }
+        //public string SurfaceR(string s)
+        //{
+        //    string result = "";
+        //    switch (s)
+        //    {
+        //        case "N":
+        //            result = "E";
+        //            break;
+        //        case "W":
+        //            result = "N";
+        //            break;
+        //        case "S":
+        //            result = "W";
+        //            break;
+        //        case "E":
+        //            result = "S";
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    return result;
+        //}
+        //public string SurfaceL(string s)
+        //{
+        //    string result = "";
+        //    switch (s)
+        //    {
+        //        case "N":
+        //            result = "W";
+        //            break;
+        //        case "W":
+        //            result = "S";
+        //            break;
+        //        case "S":
+        //            result = "E";
+        //            break;
+        //        case "E":
+        //            result = "N";
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    return result;
+        //}
+
         public Gezgin Move(Gezgin gezgin)
         {
             int[,] x = new int[,] { { 5, 5 } };

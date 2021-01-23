@@ -30,6 +30,7 @@ namespace test
             gezgin.R = temp.R;
             return gezgin;
         }
+
         public Gezgin RotateRight(Gezgin gezgin)
         {
             Gezgin temp = new Gezgin();
@@ -54,54 +55,9 @@ namespace test
             gezgin.R = temp.R;
             return gezgin;
         }
-        //public string SurfaceR(string s)
-        //{
-        //    string result = "";
-        //    switch (s)
-        //    {
-        //        case "N":
-        //            result = "E";
-        //            break;
-        //        case "W":
-        //            result = "N";
-        //            break;
-        //        case "S":
-        //            result = "W";
-        //            break;
-        //        case "E":
-        //            result = "S";
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //    return result;
-        //}
-        //public string SurfaceL(string s)
-        //{
-        //    string result = "";
-        //    switch (s)
-        //    {
-        //        case "N":
-        //            result = "W";
-        //            break;
-        //        case "W":
-        //            result = "S";
-        //            break;
-        //        case "S":
-        //            result = "E";
-        //            break;
-        //        case "E":
-        //            result = "N";
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //    return result;
-        //}
 
-        public Gezgin Move(Gezgin gezgin)
+        public Gezgin Move(Gezgin gezgin, int[,] rectangle)
         {
-            int[,] x = new int[,] { { 5, 5 } };
             Gezgin temp = new Gezgin();
             temp.cX = gezgin.cX;
             temp.cY = gezgin.cY;
@@ -111,26 +67,27 @@ namespace test
             {
                 case "N":
                     temp.cY += 1;
-                    temp = Location(temp, x);
+                    temp = Position(temp, rectangle);
                     break;
                 case "S":
                     temp.cY -= 1;
-                    temp = Location(temp, x);
+                    temp = Position(temp,rectangle);
                     break;
                 case "E":
                     temp.cX += 1;
-                    temp = Location(temp, x);
+                    temp = Position(temp, rectangle);
                     break;
                 case "W":
                     temp.cX -= 1;
-                    temp = Location(temp, x);
+                    temp = Position(temp,rectangle);
                     break;
                 default:
                     break;
             }
             return temp;
         }
-        public Gezgin Location(Gezgin gezgin, int[,] y)
+
+        public Gezgin Position(Gezgin gezgin, int[,] y)
         {
             if (gezgin.cX > y[0, 0])
             {
@@ -140,7 +97,10 @@ namespace test
             {
                 gezgin.cY = y[0, 1];
             }
+            if (gezgin.cX < 0) gezgin.cX = 0;
+            if (gezgin.cY < 0) gezgin.cY = 0;
             return gezgin;
         }
+
     }
 }

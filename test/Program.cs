@@ -11,7 +11,7 @@ namespace test
             int rX, rY;
             while (!int.TryParse(valueRectangle[0], out rX) || !int.TryParse(valueRectangle[1], out rY))
             {
-                Console.WriteLine("please enter int values");
+                Console.WriteLine("enter integer values");
                 valueRectangle = Console.ReadLine().Split(' ');
             }
             rectangle = new int[,] { { rX, rY } };
@@ -21,7 +21,7 @@ namespace test
             int gez1, gez2;
             while (!Int32.TryParse(values1[0], out gez1) || !Int32.TryParse(values1[1], out gez2) || checkRotate(values1[2]) != true)
             {
-                Console.WriteLine("please enter int values and enter either N, W, E or S");
+                Console.WriteLine("enter integer values and enter either N, W, E or S");
                 values1 = Console.ReadLine().ToUpper().Split(' ');
             }
 
@@ -32,16 +32,16 @@ namespace test
             gezgin1.R = values1[2];
 
             //get gezgin1 movement
-            string r1 = Console.ReadLine().ToUpper();
+            string directives = Console.ReadLine().ToUpper();
 
             //check directive
-            while (!checkDirective(r1)) { Console.WriteLine("Enter either M, R or L"); r1 = Console.ReadLine().ToUpper(); };
+            while (!checkDirective(directives)) { Console.WriteLine("Enter either M, R or L"); directives = Console.ReadLine().ToUpper(); };
 
             //get gezgin2
             string[] values2 = Console.ReadLine().ToUpper().Split(' ');
             while (!Int32.TryParse(values2[0], out gez1) || !Int32.TryParse(values2[1], out gez2) || checkRotate(values2[2]) != true)
             {
-                Console.WriteLine("please enter int values and enter either N, W, E or S");
+                Console.WriteLine("enter integer values and enter either N, W, E or S");
                 values2 = Console.ReadLine().ToUpper().Split(' ');
             }
 
@@ -51,12 +51,12 @@ namespace test
             gezgin2.cY = gez2;
             gezgin2.R = values2[2];
 
-            string r2 = Console.ReadLine().ToUpper();
-            while (!checkDirective(r2)) { Console.WriteLine("Enter either M, R or L"); r2 = Console.ReadLine().ToUpper(); };
+            string directives2 = Console.ReadLine().ToUpper();
+            while (!checkDirective(directives2)) { Console.WriteLine("Enter either M, R or L"); directives2 = Console.ReadLine().ToUpper(); };
 
             //last pozition
-            gezgin1 = GetPosition(gezgin1, r1);
-            gezgin2 = GetPosition(gezgin2, r2);
+            gezgin1 = GetPosition(gezgin1, directives);
+            gezgin2 = GetPosition(gezgin2, directives2);
 
             Console.WriteLine("{0} {1} {2}", gezgin1.cX, gezgin1.cY, gezgin1.R);
             Console.WriteLine("{0} {1} {2}", gezgin2.cX, gezgin2.cY, gezgin2.R);

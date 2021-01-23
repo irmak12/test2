@@ -8,13 +8,13 @@ namespace test
         static void Main(string[] args)
         {
             string[] valueRectangle = Console.ReadLine().Split(' ');
-            int R1, R2;
-            while (!int.TryParse(valueRectangle[0], out R1) || !int.TryParse(valueRectangle[1], out R2))
+            int rX, rY;
+            while (!int.TryParse(valueRectangle[0], out rX) || !int.TryParse(valueRectangle[1], out rY))
             {
                 Console.WriteLine("please enter int values");
                 valueRectangle = Console.ReadLine().Split(' ');
             }
-            rectangle = new int[,] { { R1, R2 } };
+            rectangle = new int[,] { { rX, rY } };
 
             //get gezgin1 values
             string[] values1 = Console.ReadLine().ToUpper().Split(' ');

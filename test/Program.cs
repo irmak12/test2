@@ -78,7 +78,7 @@ namespace test
         public static bool checkDirective(string d)
         {
             int j = 0;
-            bool result = false;
+            bool result = true;
 
             while (j < d.Length)
             {
@@ -87,11 +87,12 @@ namespace test
                     case "L":
                     case "M":
                     case "R":
-                        result = true;
+                       // result = true;
                         break;
                     default:
                         result = false;
                         break;
+                        //return false;
                 }
                 j++;
             }
